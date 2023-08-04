@@ -1,0 +1,280 @@
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+
+
+:root {
+  --content-width: 87%;
+
+  --clr-secondary-800: hsl(0, 0%, 17%);
+  --clr-secondary-600: hsl(0, 0%, 59%);
+  --ff-primary: 'Rubik', sans-serif;
+  --fs-primary: 1.125rem;
+
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-700: 700;
+}
+
+html, body, #root {
+  height: 100%;
+}
+body {
+
+  font-family: var(--ff-primary);
+  font-size: var(--fs-primary);
+  
+
+  background: url(../images/pattern-bg-mobile.png) top left no-repeat, black bottom left;
+  background-size: 100% 18.75rem, auto;
+}
+
+header {
+  display: grid;
+  /* place-content: center; */
+  text-align: center;
+
+  width: var(--content-width);
+  margin: auto;
+}
+
+h1 {
+  color: white;
+  font-size: 135%;
+  margin: 1.5rem;
+}
+main {
+  /* width: var(--content-width); */
+  margin: auto;
+  /* display: grid; */
+  /* place-content: center; */
+}
+
+.active {
+  cursor: pointer;
+}
+.search-bar {
+  width: min( 34rem, 100% );
+  margin: auto;
+}
+
+.search-bar__form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* padding: 1rem; */
+  /* margin: 1rem; */
+}
+
+.search-bar__input {
+  /* width: calc(100% - 3rem); */
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.85rem;
+  border: none;
+  
+}
+
+.search-bar__input::placeholder {
+  color: var(--clr-secondary-600);
+}
+
+@media( max-width: 30em) {
+  .search-bar__input::placeholder {
+    font-size: 75%;
+  }
+}
+
+.button-search {
+  position: absolute;
+  /* place-content: center; */
+  right: 0;
+  height: 100%;
+  width: 3.75rem;
+
+  background-color: var(--clr-secondary-800);
+  outline: none;
+  border: none;
+  border-radius: 0 0.85rem 0.85rem 0;
+}
+
+.button-search>img {
+  margin: auto;
+  /* place-content: center; */
+}
+/* .icon-arrow {
+
+} */
+
+.data-card {
+  display: grid;
+  /* place-content: center; */
+  width: var(--content-width);
+  margin: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  row-gap: 1rem;
+  text-align: center;
+  background-color: white;
+  margin-top: 1.65rem;
+  /* width: 100%; */
+
+  z-index: 9999;
+
+  border-radius: 0.85rem;
+
+  box-shadow: 0px 0px 10px -5px var(--clr-secondary-800);
+}
+
+.item-label {
+  text-transform: uppercase;
+  color: var(--clr-secondary-600);
+  font-size: 65%;
+  font-weight: var(--fw-700);
+  letter-spacing: 0.075rem;
+
+  margin-bottom: 0.25rem;
+}
+
+.item-content {
+  font-weight: var(--fw-500);
+}
+
+article {
+  /* height: calc(100vh - 18.75rem); */
+  z-index: -9999;
+  position: absolute;
+  top: 18.75rem;
+  /* height: calc(100% - 18.75rem); */
+  height: 100%;
+  width: 100%;
+
+}
+
+#map {
+  /* position: absolute; */
+  /* top: 18.75rem; */
+
+  height: 100%;
+
+  width: 100%;
+
+  /* z-index: -9999; */
+}
+
+/* .leaftlet-container {
+
+  height: 100%;
+} */
+
+.leaflet-control-zoom {
+  display: none;
+  /* position: absolute; */
+  /* margin-top: 10rem; */
+  /* top: 50%; */
+}
+
+/* .leaflet-marker-icon {
+  background-image: url('../images/icon-location.svg');
+  height: 41px;
+  width: 25px;
+
+} */
+
+
+@media (min-width: 45em) {
+
+  body {
+    background: url(../images/pattern-bg-desktop.png) top left no-repeat;
+    background-size: 100% 18.75rem;
+  }
+
+  h1 {
+    /* color: white; */
+    font-size: 175%;
+    font-weight: var(--fw-500);
+    /* margin: 1.5rem; */
+  }
+  /* .search-bar {
+    max-width: 34rem;
+    margin: auto;
+  } */
+  .data-card {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    max-width: 69rem;
+    /* padding-left: 2rem; */
+  }
+
+  .item-container {
+    text-align: left;
+    padding-left: 1rem;
+    /* padding-left: 1.5rem; */
+    padding-right: 1rem;
+    /* padding: 0.5rem; */
+  }
+
+  .item-label {
+    font-size: 75%;
+  }
+
+  .item-content {
+    font-size: 135%;
+  }
+
+  .vl {
+    height: 4.5rem;
+    /* height: 100%; */
+    border-left: 1px solid var(--clr-secondary-600);
+  }
+
+
+}
